@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="./css/style.css">
+
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap');
+       * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          text-decoration: none;
+          border: none;
+          outline: none;
+          scroll-behavior: smooth;
+          font-family: 'Poppins', sans-serif;
+      }
+      :root {
+          --bg-color: #1f242d;
+          --second-bg-color: #323946;
+          --text-color: #fff;
+          --main-color:#0ef;
+      } 
+      html{
+          font-size: 62.5%;
+          /* overflow: hidden; */
+      }
+      body{
+          background: var(--bg-color);
+          color: var(--bg-color);
+      }
+      section{
+          min-width: 100vh;
+          padding: 10rem  9% 2rem ;
+      }
+      .header{
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          padding: 2rem 9%;
+          background: var(--bg-color);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          z-index: 100;
+      }
+      header.sticky{
+          border-bottom: .1rem  solid rgba(0, 0, 0, .2);
+         
+      }
+      .logo{
+          font-size: 2.5rem;
+          color: var(--text-color);
+          font-weight: 600;
+          cursor: default;
+      }
+      .navbar a{
+          font-size: 1.7rem;
+          color: var(--text-color);
+          margin-left: 4rem;
+      }
+      .navbar a:hover,.navbar a.active{
+          color: var(--main-color);
+      } 
+      #menu-icon{
+          font-size: 3.6rem;
+          color: var(--text-color);
+          display: none;
+      }
+      
+      .home{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      .home-img img{
+          width: 35vw;
+          animation: floatImage 4s ease-in-out infinite;
+      }
+      @keyframes floatImage {
+          0%{
+              transform: translateY(0);
+          }
+      
+          50%{
+              transform: translateY(-2.4rem);
+          }
+      
+          100%{
+              transform: translateY(0);
+          }
+      }
+      
+      .home h2{
+          font-size: 3.2em;
+          font-weight: 700;
+          color: var(--text-color); 
+      }
+      .home-content h3{
+          font-size: 3.2rem;
+          font-weight: 700;
+          color: var(--text-color);
+      }
+      .home-content h3:nth-of-type(2){
+          margin-bottom: 2rem;
+      }
+      span{
+          color: var(--main-color);
+      }
+      
+      .home-content h1{
+          font-size: 5.6rem;
+          font-weight: 700;
+          line-height: 1.3rem;
+      }
+      .home-content p{
+            color: var(--text-color);
+            font-size: 1.6rem;
+            font-weight: 300;
+      }
+      .social-media a{
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: 5rem;
+          height: 5rem;
+          font-size: 2rem;
+      
+          background: transparent;
+          border: 0.2rem solid var(--main-color);
+          border-radius: 50%;
+          font-size: 2rem;
+          color: var(--main-color);
+          margin: 3rem 1.5rem 3rem 0;
+          transition: 0.5s ease;
+      
+      }
+      .social-media a:hover {
+          background: var(--main-color);
+          color: var(--second-bg-color);
+          box-shadow: 0 0 1rem var(--main-color);
+      }
+      
+      .btn{
+          display: inline-block;
+          padding: 1rem 2rem;
+          background: var(--main-color);
+          border-radius: 4rem;
+          box-shadow: 0 0 1rem var(--main-color);
+          font-size: 1.6rem;
+          color: var(--second-bg-color);
+          letter-spacing: .1rem;
+          font-weight: 600;
+          transition: .5s ease;
+      }
+      .btn:hover {
+          box-shadow: none;
+      }
+      .about{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 2rem;
+          background-color: var(--second-bg-color);
+      }
+      .about-img img{
+          width: 35vw;
+      }
+      .heading{
+          text-align: center;
+          font-size: 4.5rem;
+      }
+      .about-content h2 {
+          text-align: left;
+          line-height: 1.2;
+          color: #fff;
+      }
+      
+      .about-content h3{
+          text-align: left;
+          line-height: 1.2;
+          color: #fff; 
+          font-size: 2.6rem;
+      }
+      
+      .about-content p{
+          font-size: 1.6rem;
+          margin: 2rem 0 3rem;
+          color: #fff; 
+      }
+      .services h2{
+          line-height: 1.2;
+          color: #fff; 
+          font-size: 2.6rem; 
+          margin-bottom :  5rem;
+      } 
+      .services-container{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 2rem;
+          color: #fff;
+      }
+      .services-container .services-box{
+          flex: 1 1 30rem;
+          background: var(--second-bg-color);
+          padding: 3rem 2rem 4rem;
+          border-radius: 2rem;
+          text-align: center;
+          border: .2rem solid var(--bg-color);
+          transition: .5s ease;
+      }
+      .services-container .services-box:hover{
+          border-color: var(--main-color);
+          transform: scale(1.02);
+      }
+      .services-box i {
+          font-size: 7rem;
+          color: var(--main-color);
+      }
+      .services-box h3{
+          line-height: 1.2;
+          color: #fff; 
+          font-size: 2.6rem;
+      }
+      .services-box p{
+          font-size: 1.6rem;
+          margin: 1rem 0 3rem;
+          color: #fff; 
+      }
+      
+      
+      .protfolio  h2{
+      color: var(--text-color);
+      margin-bottom: 4rem;
+      }
+      
+      .portfolio-box img{
+          /* width: 25vw; */
+          width: 100%;
+          transition: .5s ease;
+      
+      } 
+      .portfolio-box:hover img{
+          transform: scale(1.1);
+      }
+      .protfolio{
+          background: var(--second-bg-color);
+      }
+      
+      .portfolio-container{
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          align-items: center;
+          gap: 2.5rem;
+      }
+      .portfolio-container .portfolio-box{
+          position: relative;
+          border-radius: 2rem;
+          box-shadow: 0 0 1rem var(--bg-color);
+          overflow: hidden;
+          display: flex;
+      }
+      
+      .portfolio-box .portfolio-layer{
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(rgba(214, 194, 194, 0.74), var(--main-color));
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          text-align: center;
+          padding: 0 4rem;
+          transform: translateY(100%);
+          transition: 0.5s ease;
+      }
+      
+      .portfolio-box:hover .portfolio-layer{
+          transform: translateY(0);
+      }
+      
+      .portfolio-layer h4{
+          color: var(--text-color);
+          font-size: 3rem;
+      
+      }
+      
+      .portfolio-layer p{
+          color: var(--text-color);
+          font-size: 1.6 rem;
+          margin: .3 0 1rem;
+          padding-bottom: 20px;
+          
+      }
+      
+      .portfolio-layer a{
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: 5rem;
+          height: 5rem;
+          background: var(--text-color);
+          border-radius: 50%;
+      
+          }
+      
+          .portfolio-layer a i {
+           
+              font-size: 2rem;
+              color: var(--second-bg-color);
+          }
+      
+          .contact h2{
+              color: var(--text-color);
+              margin-bottom: 3rem;
+          }
+      
+          .contact form{
+              max-width: 70rem;
+              margin: 1rem auto;
+              text-align: center;
+              margin-bottom: 3rem;
+            
+          }
+          .contact form .input-box {
+              display: flex; 
+              justify-content: space-between;
+              flex-wrap: wrap;
+          }
+          .contact form .input-box input,
+          .contact form textarea{
+              width: 100%;
+              padding: 1.5rem;
+              font-size: 1.6rem;
+              color: var(--text-color);
+              background: var(--second-bg-color);
+              border-radius: .8rem;
+              margin: .7rem 0;
+             
+          }
+      
+          .contact form .input-box input{
+              width: 49%;
+          }
+      
+          .contact form textarea{
+              resize: none;
+      
+          }
+          .contact form .btn{
+              margin-top: 2rem;
+              cursor: pointer;
+          }
+      
+          .footer{
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             flex-wrap: wrap;
+             padding: 2rem 9%;
+             background: var(--second-bg-color); 
+          }
+      
+      .footer-text p{
+          font-size: 1.6rem;
+          color: var(--text-color);
+      }
+       .footer-iconTop a{
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          padding: .8rem;
+          background: var(--main-color);
+          border-radius: .8rem;
+          transition: .5s ease;
+       }
+       .footer-iconTop a:hover{
+       box-shadow: 0 0 1rem var(--main-color);
+       }
+      
+       .footer-iconTop a  i{
+          font-size: 2.4rem;
+          color: var(--second-bg-color);
+       }
+      
+       /* BARKCPOINTS */
+       @media (max-widht: 1200px) {
+          html{
+              font-size: 55%;
+          }
+       }
+      
+       @media (max-widht: 991px) {
+          .header{
+             padding: 2rem 3%;
+          }
+          section {
+              padding: 10rem 3% 2rem;
+          }
+          .services{
+              padding-bottom: 7rem;
+          }
+          .protfolio{
+              padding-bottom: 7rem;
+          }
+          .contact{
+              min-height:  auto;
+          }
+          .footer{
+              padding: 2rem 3%;
+          } 
+       }
+      
+       @media  (max-width: 768px) {
+          /* For mobile phones: */
+          #menu-icon {
+              display: block;
+          }
+          .navbar{
+              position: absolute;
+              top: 100%;
+              left: 0;
+              width: 100%;
+              padding: 1rem 3%;
+              background: var(--bg-color);
+              border-top: .1rem solid rgba(0, 0, 0, .2);
+              box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+              display: none;
+          }
+          .navbar.active{
+              display: block;
+          }
+          .navbar a {
+              display: block;
+              font-size: 2rem;
+              margin: 3rem 0; 
+          }
+          .home{
+              flex-direction: column;
+          }
+          .home-content h3{
+              font-size: 2.6rem;
+          }
+          .home-content h1{
+              font-size: 5rem;
+          }
+          .home-img img {
+              width: 70vw;
+              margin-top: 4rem;
+      
+          }
+          .about{
+              flex-direction: column-reverse;
+          }
+          .about img{
+              width: 70vw;
+              margin-top: 4rem;
+          }
+          .services h2{
+              margin-bottom: 3rem;
+      
+          }
+          .protfolio h2{
+              margin-bottom: 3rem;
+          }
+          .portfolio-container{
+              grid-template-columns: repeat(2, 1fr);
+          }
+        }
+      
+        @media (max-width: 617px){
+          .portfolio-container{
+              grid-template-columns: 1fr;
+          }
+        }
+        @media(max-width: 450px){
+          html{
+              font-size: 50%;
+          }
+          .contact form .input-box input {
+              width: 100%;
+          }
+        }
+        @media(max-width: 365px){
+      .home-img img {
+          width: 90vw;
+      }
+      .about-img img{
+          width: 90vw;
+      }
+      .footer{
+          flex-direction: column-reverse;
+      }
+      .footer p {
+          text-align: center;
+          margin-top: 2rem;
+      }
+        }</style>
+
+    <title>Document</title>
+</head>
+<body>
+     <!-- header Desing -->
+     <header class="header">
+        <a href="#" class="logo">Protfolio</a>
+
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#Home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#service">Service</a>
+            <a href="#protfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
+     </header>
+
+     <!-- home section design  -->
+     <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+            <h2>MD SOJIB ALI</h2>
+            <h3>And I'm  a <span class="multiple-text"></span></h3>
+            
+            <div class="social-media">
+                <a href="#"><i class='bx bxl-meta'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                <a href="#"><i class='bx bxl-linkedin-square'></i></a>
+            </div>
+            <a href="" class="btn">Download CV</a>
+        </div>
+        <div class="home-img">
+            <img src="https://i.ibb.co/mbh0pRY/Sojib.png" alt="">
+        </div>
+     </section>
+
+     <!-- about section  design-->
+     <section class="about" id="about">
+        <div class="about-img">
+           <img src="https://i.ibb.co/mbh0pRY/Sojib.png" alt=""> 
+        </div>
+
+        <div class="about-content">
+         <h2 class="heading"> About <span>Me</span></h2>
+         <h3>Frontend Developer</h3>
+         <p>
+            I am Sojib  a Full-stack ফুল স্ট্যাক ওয়েব ডেভেলপমেন্ট (MERN)  & web developer with 1+ years of experience. I build website using these technologies(HTML, Reac,CSS, JavaScript,WordPress,Bootstrap)I have passion for IT & Telecommunication industry.I expect to specialize in software engineering field in my future career.I heartily thankful to all invisible hands who help me, Trust me!!</p>  
+         <a href="#" class="btn">Read More</a> 
+        </div>
+     </section>
+
+     <!-- services section desgin -->
+
+     <section class="services" id="service">
+         <h2 class="heading">Our <span>Services</span></h2>
+         <div class="services-container">
+            <div class="services-box">
+              <i class="bx bx-code-alt"></i>  
+              <h3>Web Development</h3>
+              <p>
+                (AllPages, Secure,Fast Loading,SEO Friendly,100% Mobile Responsive,Dynamic,Category,Sub Category,Product Details,Multiple Image Upload Option,Login/ Registration.Feature Wise Filter,Stock Management,Multiple Language,Cart Page,Checkout,Database System (My SQL),WP Admin Panel,.com Domain,20GB Hosting)</p>
+              <a href="#" class="btn">Read More</a> 
+            </div>
+
+            <div class="services-box">
+                <i class="bx bxs-paint"></i>  
+                <h3>Graphic design</h3>
+                <p>Graphic design is a craft where professionals create visual content to communicate messages. By applying visual hierarchy and page layout techniques, designers use typography and pictures to meet users' specific needs and focus on the logic of displaying elements in interactive designs, to optimize the user experience.</p>
+                <a href="#" class="btn">Read More</a> 
+              </div>
+
+              <div class="services-box">
+                <i class="bx bx-bar-chart-alt"></i>  
+                <h3>Digital Marketing</h3>
+                <p>A digital marketer is a marketing specialist who understands how to develop and deploy effective marketing strategies online.  is the promotion of brands to connect with potential customers using the internet and other forms of digital communication. This includes not only email, social media, and web-based advertising, .</p>
+                <a href="#" class="btn">Read More</a> 
+              </div>
+         </div>
+     </section>
+
+     <!-- protfolio section design -->
+
+     <section class="protfolio" id="protfolio">
+        <h2 class="heading">Latest <span>Project</span></h2>
+
+
+        <div class="portfolio-container">
+            <div class="portfolio-box">
+                <img src="https://i.ibb.co/9vQLLBh/prot1-1.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Web Design</h4>
+                    <p>provides you with a customized website design that's perfect for your business or personal site.</p>
+                    <a href=""> <i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="https://i.ibb.co/2NdgfZZ/prot1-2.jpg" alt="">
+                <div class="portfolio-layer">>
+                    <h4>Web Development</h4>
+                    <p>Involve everything related to building a web-based solution.</p>
+                    <a href=""> <i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="https://i.ibb.co/bJTgdj1/prot1-3.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Digital Marketing</h4>
+                    <p>A digital marketer is a marketing specialist who understands how to develop and deploy effective marketing strategies online..</p>
+                    <a href=""> <i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="https://i.ibb.co/rwCNK93/prot1-4.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Graphic design</h4>
+                    <p>Graphic design is a craft where professionals create visual content to communicate messages.</p>
+                    <a href=""> <i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="https://i.ibb.co/Y7Wp0zk/prot1-5.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>YouTuber</h4>
+                    <p>Let's Talk About Best Practices.</p>
+                    <a href=""> <i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="https://i.ibb.co/LYk2JPc/prot1-6.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Blogger</h4>
+                    <p>A website that lets anyone write and publish their own blog that is hosted on its servers.....</p>
+                    <a href=""> <i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+        </div>
+     </section>
+     <!-- contact section Desing -->
+     <section class="contact" id="contact">
+        <h2 class="heading"> Contact <span>Me!</span></h2>
+
+        <form action="">
+            <div class="input-box">
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email Addres">
+            </div>
+            <div class="input-box">
+                <input type="Number" placeholder="Mobile Number">
+                <input type="text" placeholder="Email Subject">
+            </div>
+            <textarea  name=""  id="" rows="10" cols="30" placeholder="Your Message"></textarea>
+            <input   type="submit" value="Sent Message"  <a href="#" class="btn"></a> 
+            
+        </form>
+    </section>
+
+    <!-- footer-design -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p> Copyright &copy; 2023 by Sojib | All Rights Reserved</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#home"> <i class="bx bx-up-arrow-alt"></i></a>
+        </div>
+
+    </footer>
+     
+
+
+   
+
+      
+<!-- scroll reveat -->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<!-- type js -->
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+<!-- coustom js  -->
+    <script>
+        // toggle icon navbar ...........
+let menuIcon = document.querySelector('#menu-icon');
+let navbar= document.querySelector('.navbar');
+menuIcon.onclick = () =>{
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+};
+
+// scroll section active link ...........
+
+let sections = document.querySelectorAll("section");
+let navLinks = document.querySelectorAll("header nav a");
+
+window.onscroll = () => {
+    sections.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop -150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+        if(top >= offset && top < offset + height){
+            navLinks.forEach(links =>{
+                links.classList.remove('active');
+                document.querySelector('header nav a [href*=' + id +']').classList.add('active');
+            });
+        };
+    });
+    // sticky navbar........ ...........///
+    let header = document.querySelector('header');
+    header.classList.toggle('sticky', window.scrollY > 100);
+
+    // remove toggle icon and navbar ========
+    menuIcon.classList.remove('bx-x');
+    navbar.classList.remove('active');
+    
+}; 
+
+// <!-- scroll reveat -->
+
+ScrollReveal({ 
+    // reset: true,
+    distance :'80px',
+    duration: 2000,
+    delay : 200
+});
+
+ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
+ScrollReveal().reveal('.home-img,.services-container, .portfolio-box, .contact form', { origin: 'bottom' });
+ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
+ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+    
+
+// ==============type js ======= -->
+ const typed = new Typed('.multiple-text',{
+    strings: ['Frontend Developer.....!', 
+    'YouTuber....!',
+     'Blogger....!'],
+    typeSpeed: 100,
+    backSpeed:100,
+    backDelay: 1000,
+    loop: true,
+
+ }) ;
+    </script>
+</body>
+</html>
